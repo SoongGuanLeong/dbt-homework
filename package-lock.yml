@@ -5,4 +5,7 @@ packages:
   - name: dbt_utils
     package: dbt-labs/dbt_utils
     version: 1.3.0
-sha1_hash: 9c459bb513316be11ab55af0e5113f17444d082e
+  - name: fivetran_utils
+    package: fivetran/fivetran_utils
+    version: 0.4.10
+sha1_hash: cbe1c341b1871191f42456a74c62938f2fe8c36b

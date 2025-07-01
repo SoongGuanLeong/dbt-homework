@@ -21,6 +21,10 @@ models:
   - name: fct_taxi_trips_quarterly_revenue
     description: >
       A table created to answer question 5
+
+  - name: fct_taxi_trips_monthly_fare_p95
+    description: >
+      A table created to answer question 6
       
   - name: fact_trips
     description: >
