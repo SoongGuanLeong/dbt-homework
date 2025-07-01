@@ -30,5 +30,5 @@ SELECT
     service_type, year, month, p97, p95, p90
 FROM trips2
 WHERE rn = 1
-ORDER BY service_type_year_month
+ORDER BY 1, 2, 3
 {% if target.type == 'postgres' %} group by id {% endif %}
