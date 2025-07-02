@@ -25,6 +25,10 @@ models:
   - name: fct_taxi_trips_monthly_fare_p95
     description: >
       A table created to answer question 6
+  
+  - name: fct_fhv_monthly_zone_traveltime_p90
+    description: >
+      A table created to answer question 7
       
   - name: fact_trips
     description: >
