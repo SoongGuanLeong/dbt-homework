@@ -8,6 +8,7 @@ sources:
     tables:
       - name: external_green_tripdata
       - name: external_yellow_tripdata
+      - name: external_fhv_tripdata
          # freshness:
            # error_after: {count: 6, period: hour}
 
@@ -194,3 +195,27 @@ models:
             description: Total amount of all tolls paid in trip.
           - name: Total_amount 
             description: The total amount charged to passengers. Does not include cash tips.
+    
+    - name: stg_external_fhv_tripdata
+      description: >
+        This staging model cleans and standardizes raw FHV (For-Hire Vehicle) trip data.
+        It includes key identifiers, timestamps, pickup and dropoff locations, and dispatching base information.
+        The model applies proper data type casting and handles missing or malformed values.
+        Intended for downstream fact model development and analytics involving FHV trips in NYC.
+      columns:
+        - name: tripid
+          description: Unique surrogate key for each trip, generated from key columns
+        - name: dispatching_base_num 
+          description: Code of the base that dispatched the FHV
+        - name: pickup_locationid
+          description: Taxi zone ID where the passenger was picked up
+        - name: dropoff_locationid
+          description: Taxi zone ID where the passenger was dropped off
+        - name: affiliated_base_number 
+          description: Code of the base the vehicle is affiliated with (may differ from dispatching base)
+        - name: pickup_datetime 
+          description: Timestamp when the trip started
+        - name: dropoff_datetime 
+          description: Timestamp when the trip ended
+        - name: sr_flag
+          description: Shared ride flag (a number if part of a shared trip, else 0)
