@@ -24,6 +24,7 @@ trips2 AS (
     fare_amount > 0 
     AND trip_distance > 0 
     AND payment_type_description IN ('Cash', 'Credit card')
+    {% if target.type == 'postgres' %} group by service_type_year_month {% endif %}
 )
 
 SELECT 
@@ -31,4 +32,3 @@ SELECT
 FROM trips2
 WHERE rn = 1
 ORDER BY 1, 2, 3
-{% if target.type == 'postgres' %} group by id {% endif %}
